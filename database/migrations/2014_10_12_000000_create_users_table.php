@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')
-                    ->references('id')
-                    ->on('posts');
+            // $table->unsignedBigInteger('post_id');
+            // $table->foreign('post_id')
+            //         ->references('id')
+            //         ->on('posts');
         });
     }
 
