@@ -18,15 +18,23 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
+// DEFINIAMO LE ROTTE PUBBLICHE
+Route::get('/posts', 'PostController@index')->name('posts.index');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')
-->namespace('Admin') 
-->middleware('auth')
-->name('admin.')
-->group(function () {
+Route::prefix('admin') // prefisso rotte
+    ->namespace('Admin') // namespace delle cartelle
+    ->middleware('auth') // filtro per autenticazione
+    ->name('admin.') //prefisso di tutti i nomi delle rotte
+    ->group(function () {
+
+
+    // qui dentro ci sarà tutto l'admin panner
+    // Route::namespace('Admin');
     
     Route::resource('posts', 'PostController');
+
+    // Route::get('profile', 'ProfileController@index');
 
 });
